@@ -1,0 +1,4 @@
+interface:
+  display_name: "租户资源与排队"
+  short_description: "根据生产元数据与只读命令排查 OceanBase 租户资源与排队"
+  default_prompt: "使用 $oceanbase-tenant-resource，先确认租户与可用视图，再分析当前故障。"

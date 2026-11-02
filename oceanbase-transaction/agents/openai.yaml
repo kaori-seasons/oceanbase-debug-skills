@@ -1,0 +1,4 @@
+interface:
+  display_name: "事务、行锁与死锁"
+  short_description: "根据生产元数据与只读命令排查 OceanBase 事务、行锁与死锁"
+  default_prompt: "使用 $oceanbase-transaction，先确认租户与可用视图，再分析当前故障。"

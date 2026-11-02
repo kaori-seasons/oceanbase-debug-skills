@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tablet、LS 与热点"
+  short_description: "根据生产元数据与只读命令排查 OceanBase Tablet、LS 与热点"
+  default_prompt: "使用 $oceanbase-tablet，先确认租户与可用视图，再分析当前故障。"

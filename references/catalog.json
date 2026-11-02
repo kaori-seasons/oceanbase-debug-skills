@@ -1,0 +1,203 @@
+{
+  "query": {
+    "title": "慢 SQL 与执行计划",
+    "primary": "GV$OB_SQL_AUDIT",
+    "columns": [
+      "TENANT_ID",
+      "TRACE_ID",
+      "SQL_ID",
+      "PLAN_ID",
+      "REQUEST_TIME",
+      "ELAPSED_TIME",
+      "QUEUE_TIME",
+      "GET_PLAN_TIME",
+      "EXECUTE_TIME",
+      "APPLICATION_WAIT_TIME",
+      "USER_IO_WAIT_TIME",
+      "RETURN_ROWS"
+    ],
+    "additional": [
+      "GV$OB_PLAN_CACHE_PLAN_STAT"
+    ]
+  },
+  "write": {
+    "title": "写入慢与写失败",
+    "primary": "GV$OB_MEMSTORE",
+    "columns": [
+      "SVR_IP",
+      "SVR_PORT",
+      "TENANT_ID",
+      "MEMSTORE_USED",
+      "MEMSTORE_LIMIT",
+      "FREEZE_TRIGGER",
+      "FREEZE_CNT"
+    ],
+    "additional": [
+      "GV$OB_MEMSTORE_INFO"
+    ]
+  },
+  "transaction": {
+    "title": "事务、行锁与死锁",
+    "primary": "GV$OB_LOCKS",
+    "columns": [
+      "SVR_IP",
+      "SVR_PORT",
+      "TENANT_ID",
+      "TRANS_ID",
+      "SESSION_ID",
+      "TYPE",
+      "ID1",
+      "ID2",
+      "ID3",
+      "LMODE",
+      "REQUEST",
+      "CTIME",
+      "BLOCK"
+    ],
+    "additional": [
+      "GV$OB_TRANSACTION_PARTICIPANTS",
+      "DBA_OB_DEADLOCK_EVENT_HISTORY"
+    ]
+  },
+  "election-ha": {
+    "title": "选主、日志与高可用",
+    "primary": "GV$OB_LOG_STAT",
+    "columns": [
+      "TENANT_ID",
+      "LS_ID",
+      "SVR_IP",
+      "SVR_PORT",
+      "ROLE",
+      "PROPOSAL_ID",
+      "CONFIG_VERSION",
+      "IN_SYNC",
+      "END_LSN",
+      "END_SCN",
+      "MAX_LSN",
+      "MAX_SCN"
+    ],
+    "additional": [
+      "DBA_OB_LS"
+    ]
+  },
+  "compaction": {
+    "title": "冻结、合并与 Checkpoint",
+    "primary": "GV$OB_COMPACTION_PROGRESS",
+    "columns": [
+      "SVR_IP",
+      "SVR_PORT",
+      "TENANT_ID",
+      "TYPE",
+      "STATUS",
+      "COMPACTION_SCN",
+      "UNFINISHED_TABLET_COUNT",
+      "UNFINISHED_DATA_SIZE"
+    ],
+    "additional": [
+      "GV$OB_TABLET_COMPACTION_PROGRESS"
+    ]
+  },
+  "observer": {
+    "title": "进程、内存、Crash 与 Hang",
+    "primary": "GV$OB_MEMORY",
+    "columns": [
+      "TENANT_ID",
+      "SVR_IP",
+      "SVR_PORT",
+      "CTX_NAME",
+      "MOD_NAME",
+      "HOLD",
+      "USED"
+    ],
+    "additional": [
+      "GV$OB_THREAD"
+    ]
+  },
+  "tenant-resource": {
+    "title": "租户资源与排队",
+    "primary": "GV$OB_TENANT_RUNTIME_INFO",
+    "columns": [
+      "SVR_IP",
+      "SVR_PORT",
+      "TENANT_ID",
+      "UNIT_MIN_CPU",
+      "UNIT_MAX_CPU",
+      "ACTIVES",
+      "WORKERS",
+      "REQ_QUEUE_TOTAL_SIZE"
+    ],
+    "additional": [
+      "GV$OB_UNITS"
+    ]
+  },
+  "tablet": {
+    "title": "Tablet、LS 与热点",
+    "primary": "DBA_OB_TABLET_TO_LS",
+    "columns": [
+      "TABLET_ID",
+      "LS_ID"
+    ],
+    "additional": [
+      "DBA_OB_TABLET_REPLICAS"
+    ]
+  },
+  "balance": {
+    "title": "Unit 与副本迁移",
+    "primary": "DBA_OB_LS_REPLICA_TASKS",
+    "columns": [
+      "LS_ID",
+      "TASK_ID",
+      "TASK_TYPE",
+      "TASK_STATUS",
+      "CREATE_TIME",
+      "START_TIME",
+      "MODIFY_TIME",
+      "COMMENT"
+    ],
+    "additional": [
+      "DBA_OB_UNIT_JOBS"
+    ]
+  },
+  "ddl-schema": {
+    "title": "DDL 与 Schema 一致性",
+    "primary": "GV$OB_SERVER_SCHEMA_INFO",
+    "columns": [
+      "TENANT_ID",
+      "SVR_IP",
+      "SVR_PORT",
+      "REFRESHED_SCHEMA_VERSION"
+    ],
+    "additional": [
+      "DBA_OB_ROOTSERVICE_EVENT_HISTORY"
+    ]
+  },
+  "deployment": {
+    "title": "启动、部署与基础环境",
+    "primary": "DBA_OB_SERVERS",
+    "columns": [
+      "SVR_IP",
+      "SVR_PORT",
+      "STATUS",
+      "ZONE"
+    ],
+    "additional": [
+      "DBA_OB_ZONES"
+    ]
+  },
+  "cpu-io": {
+    "title": "CPU 与 IO 归因",
+    "primary": "GV$OB_TENANT_RUNTIME_INFO",
+    "columns": [
+      "SVR_IP",
+      "SVR_PORT",
+      "TENANT_ID",
+      "ACTIVES",
+      "WORKERS",
+      "REQ_QUEUE_TOTAL_SIZE",
+      "UNIT_MAX_CPU"
+    ],
+    "additional": [
+      "GV$OB_MEMORY"
+    ]
+  }
+}

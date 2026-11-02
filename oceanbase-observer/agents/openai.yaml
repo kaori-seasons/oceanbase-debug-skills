@@ -1,0 +1,4 @@
+interface:
+  display_name: "进程、内存、Crash 与 Hang"
+  short_description: "根据生产元数据与只读命令排查 OceanBase 进程、内存、Crash 与 Hang"
+  default_prompt: "使用 $oceanbase-observer，先确认租户与可用视图，再分析当前故障。"

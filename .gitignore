@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+capability*.json
+audit*.csv
+audit*.tsv

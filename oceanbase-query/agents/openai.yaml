@@ -1,0 +1,4 @@
+interface:
+  display_name: "慢 SQL 与执行计划"
+  short_description: "根据生产元数据与只读命令排查 OceanBase 慢 SQL 与执行计划"
+  default_prompt: "使用 $oceanbase-query，先确认租户与可用视图，再分析当前故障。"
